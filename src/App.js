@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"; 
+import { useSelector } from "react-redux";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
@@ -11,7 +12,9 @@ import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
 const App = props => {
-  const displayFavorites = true;
+  const displayFavorites = useSelector(
+    (store) => store.favoriteReducer.displayFavorites
+  );
 
   return (
     <div>
